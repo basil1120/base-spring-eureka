@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: basil-eureka-server-service
+ labels:
+ app: base-spring-eureka
+spec:
+ type: NodePort
+ ports:
+ - port: 8761
+ nodePort: 8766
+ selector:
+ app: base-spring-eureka
