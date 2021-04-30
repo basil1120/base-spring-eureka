@@ -1,16 +1,19 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: basil-eureka-server-deployment
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: base-spring-eureka
   template:
     metadata:
       labels:
         app: base-spring-eureka
     spec:
       containers:
-      - name: basil.base-spring-eureka
+      - name: base-spring-eureka-container
         image: basil.base-spring-eureka:latest
         ports:
         - containerPort: 8761
